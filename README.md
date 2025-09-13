@@ -1,2 +1,2 @@
 # AlfredoGonz
-tareas de devsop
+tareas de DevOps
