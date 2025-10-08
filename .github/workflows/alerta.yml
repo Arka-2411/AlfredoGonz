@@ -1,0 +1,21 @@
+name: Alerta ntfy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repo
+        uses: actions/checkout@v4
+
+      - name: Enviar notificación a ntfy
+        run: |
+          curl -s -X POST \
+            -H "Title: Notificación DevOps ITLA" \
+            -H "Content-Type: text/plain" \
+            --data-binary $'Se subió nuevo código a la rama main del repo: ${{ github.repository }}' \
+            https://ntfy.sh/devops-itla
